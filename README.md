@@ -22,11 +22,14 @@ sudo ip link set s1 snort up
 ```
 Check your assigned port with the following command and update simple_switch_snort.py file
 ```bash
-sudo ovs-ofctl show s1
+sudo ovs-ofctl show s1 | grep s1-snort
 ```
 ![image](https://github.com/user-attachments/assets/06a30d57-d5a4-4c33-97e8-ade492fa4e78)
 
 and update simple_switch_snort.py file.
+```bash
+/home/sds/.local/lib/python3.8/site-packages/ryu/app/simple_switch_snort.py
+```
 ![image](https://github.com/user-attachments/assets/6193f11b-503d-4acd-8a14-5f4899ff81ec)
 
 
