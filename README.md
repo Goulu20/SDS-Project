@@ -35,7 +35,7 @@ and update simple_switch_snort.py file.
 
 Finally execute snort
 ```bash
-sudo snort -i s1-snort -A unsock -l /tmp -c /etc/snort/snort.conf
+sudo snort -i s1-snort -A unsock -l /tmp -c /etc/snort/snort.conf -l /var/log/snort
 ```
 ### 2. Test DoS attack in mininet
 ```bash
