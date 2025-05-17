@@ -51,29 +51,41 @@ sudo telegraf --config telegraf.conf
 ```
 
 GRAFANA:
+
 ➕ Add InfluxDB as a Data Source
+
   Click the gear icon (⚙️) on the left → Data Sources  
   Click Add data source  
   Select InfluxDB
 
 🛠 Configure the InfluxDB Data Source
+
 Basic settings:
+
 URL:
   If InfluxDB runs locally: http://localhost:8086
+  
   If remote: http://<server-ip>:8086
 
 Auth settings (if no auth set in InfluxDB):
+
   Leave Basic Auth and Auth details off
 
 Database settings:
+
   Database: snortdb (or your actual InfluxDB database name)
+  
   User / Password: Leave blank unless authentication is enabled
 
 
-5. Create a Dashboard
+Create a Dashboard
+   
   Click the + icon on the left → Dashboard
+  
   Click Add a new panel
+  
   In Query > Data source, select your InfluxDB
+  
   In the query field, use:
 ```bash
 SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
