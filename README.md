@@ -62,31 +62,21 @@ GRAFANA:
 
 Basic settings:
 
-URL:
-&nbsp;If InfluxDB runs locally: http://localhost:8086
-  
-&nbsp;If remote: http://<server-ip>:8086
+URL:  
+&nbsp;&nbsp;If InfluxDB runs locally: http://localhost:8086  
+&nbsp;&nbsp;If remote: http://<server-ip>:8086  
+Auth settings (if no auth set in InfluxDB):  
+&nbsp;&nbsp;Leave Basic Auth and Auth details off  
 
-Auth settings (if no auth set in InfluxDB):
+Database settings:  
+&nbsp;&nbsp;Database: snortdb (or your actual InfluxDB database name)  
+&nbsp;&nbsp;User / Password: Leave blank unless authentication is enabled  
 
-&nbsp;Leave Basic Auth and Auth details off
-
-Database settings:
-
-&nbsp;Database: snortdb (or your actual InfluxDB database name)
-  
-&nbsp;User / Password: Leave blank unless authentication is enabled
-
-
-Create a Dashboard
-   
-&nbsp;Click the + icon on the left → Dashboard
-  
-&nbsp;Click Add a new panel
-  
-&nbsp;In Query > Data source, select your InfluxDB
-  
-&nbsp;In the query field, use:
+Create a Dashboard  
+&nbsp;&nbsp;Click the + icon on the left → Dashboard  
+&nbsp;&nbsp;Click Add a new panel  
+&nbsp;&nbsp;In Query > Data source, select your InfluxDB  
+&nbsp;&nbsp;In the query field, use:  
 ```bash
 SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
 ```
