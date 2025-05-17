@@ -32,15 +32,15 @@ and update simple_switch_snort.py file.
 ```
 ![image](https://github.com/user-attachments/assets/6193f11b-503d-4acd-8a14-5f4899ff81ec)
 
-
 Finally execute snort
 ```bash
 sudo snort -i s1-snort -c snort.conf -l /tmp
 ```
-### 2. Test DoS attack in mininet
+### 3. Test DoS attack in mininet
 ```bash
 h2 python3 dos.py h3
 ```
+### 4. To create the graphic
 To start Influxdb in the directory SDS-Project
 ```bash
 sudo systemctl start influxdb
@@ -52,9 +52,9 @@ sudo telegraf --config telegraf.conf
 
 GRAFANA:
 ➕ Add InfluxDB as a Data Source
-Click the gear icon (⚙️) on the left → Data Sources
-Click Add data source
-Select InfluxDB
+  Click the gear icon (⚙️) on the left → Data Sources  
+  Click Add data source  
+  Select InfluxDB
 
 🛠 Configure the InfluxDB Data Source
 Basic settings:
