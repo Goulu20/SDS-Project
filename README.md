@@ -54,39 +54,39 @@ GRAFANA:
 
 ➕ Add InfluxDB as a Data Source
 
-  Click the gear icon (⚙️) on the left → Data Sources  
-  Click Add data source  
-  Select InfluxDB
+&nbsp;Click the gear icon (⚙️) on the left → Data Sources  
+&nbsp;Click Add data source  
+&nbsp;Select InfluxDB
 
 🛠 Configure the InfluxDB Data Source
 
 Basic settings:
 
 URL:
-  If InfluxDB runs locally: http://localhost:8086
+&nbsp;If InfluxDB runs locally: http://localhost:8086
   
-  If remote: http://<server-ip>:8086
+&nbsp;If remote: http://<server-ip>:8086
 
 Auth settings (if no auth set in InfluxDB):
 
-  Leave Basic Auth and Auth details off
+&nbsp;Leave Basic Auth and Auth details off
 
 Database settings:
 
-  Database: snortdb (or your actual InfluxDB database name)
+&nbsp;Database: snortdb (or your actual InfluxDB database name)
   
-  User / Password: Leave blank unless authentication is enabled
+&nbsp;User / Password: Leave blank unless authentication is enabled
 
 
 Create a Dashboard
    
-  Click the + icon on the left → Dashboard
+&nbsp;Click the + icon on the left → Dashboard
   
-  Click Add a new panel
+&nbsp;Click Add a new panel
   
-  In Query > Data source, select your InfluxDB
+&nbsp;In Query > Data source, select your InfluxDB
   
-  In the query field, use:
+&nbsp;In the query field, use:
 ```bash
 SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
 ```
