@@ -32,7 +32,7 @@ and update simple_switch_snort.py file.
 ```
 ![image](https://github.com/user-attachments/assets/6193f11b-503d-4acd-8a14-5f4899ff81ec)
 
-Finally execute snort
+Finally execute snort in snort_files directory
 ```bash
 sudo snort -i s1-snort -c snort.conf -l /tmp
 ```
