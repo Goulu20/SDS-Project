@@ -18,7 +18,7 @@ ryu-manager simple_switch_snort.py --verbose
 ```bash
 sudo ip link add name s1-snort type dummy
 sudo ovs-vsctl add-port s1 s1-snort
-sudo ip link set s1 snort up
+sudo ip link set s1-snort up
 ```
 Check your assigned port with the following command and update simple_switch_snort.py file
 ```bash
@@ -35,15 +35,46 @@ and update simple_switch_snort.py file.
 
 Finally execute snort
 ```bash
-sudo snort -i s1-snort -A unsock -l /tmp -c /etc/snort/snort.conf -l /var/log/snort
+sudo snort -i s1-snort -c snort.conf -l /tmp
 ```
 ### 2. Test DoS attack in mininet
 ```bash
 h2 python3 dos.py h3
 ```
+To start Influxdb in the directory SDS-Project
+```bash
+sudo systemctl start influxdb
+```
+To start Telegraf in the directory SDS-Project
+```bash
+sudo telegraf --config telegraf.conf
+```
+
+GRAFANA:
+➕ Add InfluxDB as a Data Source
+Click the gear icon (⚙️) on the left → Data Sources
+Click Add data source
+Select InfluxDB
+
+🛠 Configure the InfluxDB Data Source
+Basic settings:
+URL:
+  If InfluxDB runs locally: http://localhost:8086
+  If remote: http://<server-ip>:8086
+
+Auth settings (if no auth set in InfluxDB):
+  Leave Basic Auth and Auth details off
+
+Database settings:
+  Database: snortdb (or your actual InfluxDB database name)
+  User / Password: Leave blank unless authentication is enabled
 
 
-
-
-
-
+5. Create a Dashboard
+  Click the + icon on the left → Dashboard
+  Click Add a new panel
+  In Query > Data source, select your InfluxDB
+  In the query field, use:
+```bash
+SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
+```
