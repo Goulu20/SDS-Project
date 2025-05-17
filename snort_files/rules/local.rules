@@ -1,0 +1,14 @@
+# $Id: local.rules,v 1.11 2004/07/23 20:15:44 bmc Exp $
+# ----------------
+# LOCAL RULES
+# ----------------
+# This file intentionally does not come with signatures.  Put your local
+# additions here.
+#
+
+#alert tcp any any -> any 80 (msg:"TCP traffic to port 80 detected"; sid:1000050; rev:1;)
+#alert tcp any any -> any any (msg:"ANY TCP detected"; sid:1000001; rev:1;)
+alert tcp any any -> any 80 (msg:"TCP traffic to port 80 detected"; sid:1000040; rev:1;)
+alert tcp any 80 -> any any (msg:"Response from port 80"; sid:1000050; rev:1;)
+#alert icmp any any -> any any (msg:"ICMP traffic detected"; sid:1000060; rev:1;)
+

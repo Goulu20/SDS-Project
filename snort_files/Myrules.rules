@@ -1,3 +1,3 @@
 alert icmp any any -> $HOME_NET any (msg:"ICMP flood"; sid:1100002; classtype:icmp-event; detection_filter:track by_dst, count 500, seconds 3;)
 alert tcp any any -> $HOME_NET 80 (flags: S; msg:"Possible DoS Attack Type : SYN flood"; flow:stateless; sid:1100003; detection_filter:track by_dst, count 20, seconds 10;)
-
+#alert icmp any any -> any any (msg:"ICMP SYMPLE"; sid:1100010; rev:1;)
