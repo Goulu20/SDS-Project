@@ -45,6 +45,8 @@ To start Influxdb in the directory SDS-Project
 ```bash
 sudo systemctl start influxdb
 ```
+Copy the telegraf.config into the path /etc/telegraf/telegraf.conf (replace it)
+
 To start Telegraf in the directory SDS-Project
 ```bash
 sudo telegraf --config telegraf.conf
@@ -82,7 +84,13 @@ Create a Dashboard
 &nbsp;&nbsp;Click the + icon on the left → Dashboard  
 &nbsp;&nbsp;Click Add a new panel  
 &nbsp;&nbsp;In Query > Data source, select your InfluxDB  
+For the snort metrics:
 &nbsp;&nbsp;In the query field, use:  
 ```bash
 SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
+```
+For the port metrics:
+&nbsp;&nbsp;In the query field, use:  
+```bash
+SELECT last("rx-pkts") FROM "ports" WHERE ("port" = '1') AND $timeFilter GROUP BY time($__interval) fill(none)
 ```
