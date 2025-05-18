@@ -26,7 +26,7 @@ sudo ovs-ofctl show s1 | grep s1-snort
 ```
 ![image](https://github.com/user-attachments/assets/06a30d57-d5a4-4c33-97e8-ade492fa4e78)
 
-and update simple_switch_snort.py file.
+and update simple_switch_snort_grafana.py file.
 ```bash
 /home/sds/.local/lib/python3.8/site-packages/ryu/app/simple_switch_snort.py
 ```
@@ -84,12 +84,12 @@ Create a Dashboard
 &nbsp;&nbsp;Click the + icon on the left → Dashboard  
 &nbsp;&nbsp;Click Add a new panel  
 &nbsp;&nbsp;In Query > Data source, select your InfluxDB  
-For the snort metrics:
+For the snort metrics.
 &nbsp;&nbsp;In the query field, use:  
 ```bash
 SELECT count("message") FROM "snort_alerts" WHERE $timeFilter GROUP BY time($__interval)
 ```
-For the port metrics:
+For the port metrics.
 &nbsp;&nbsp;In the query field, use:  
 ```bash
 SELECT last("rx-pkts") FROM "ports" WHERE ("port" = '1') AND $timeFilter GROUP BY time($__interval) fill(none)
