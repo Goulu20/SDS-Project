@@ -21,15 +21,16 @@ class TopoSDN:
 
         # Switches
         s1 = net.addSwitch('s1')
-        s2 = net.addSwitch('s2')
+        #s2 = net.addSwitch('s2')
 	
         # Enlaces
         net.addLink(hosts['h1'], s1)
         net.addLink(hosts['h2'], s1)
+	net.addLink(hosts['h3'], s1)    
         net.addLink(s1, hosts['h4'])  # web1
         net.addLink(s1, hosts['h5'])  # web2
-        net.addLink(s1, s2)
-        net.addLink(s2, hosts['h3'])
+        #net.addLink(s1, s2)
+        #net.addLink(s2, hosts['h3'])
 
         # Controlador remoto en localhost:6633
         c0 = RemoteController('c0', ip='127.0.0.1', port=6633)
