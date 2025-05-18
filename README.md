@@ -50,7 +50,13 @@ To start Telegraf in the directory SDS-Project
 sudo telegraf --config telegraf.conf
 ```
 
-GRAFANA:
+
+### 5. GRAFANA:
+Start grafana
+```bash
+sudo systemctl start grafana-server
+```
+Open your web browser and go to http://localhost:3000
 
 ➕ Add InfluxDB as a Data Source
 
