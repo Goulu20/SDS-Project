@@ -12,7 +12,7 @@ Steps to execute project:
 ```bash
 sudo mn -c
 sudo python3 myTopo.py
-ryu-manager simple_switch_snort.py --verbose
+ryu-manager simple_switch_snort_grafana.py --verbose
 ```
 ### 2. In a new terminal, execute snort
 ```bash
